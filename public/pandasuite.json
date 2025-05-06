@@ -110,6 +110,7 @@
         "fr_FR": "Contrôles du lecteur"
       },
       "type": "Boolean",
+      "bindable": true,
       "value": false
     },
     {
@@ -119,6 +120,7 @@
         "fr_FR": "Lecture automatique"
       },
       "type": "Boolean",
+      "bindable": true,
       "value": false
     },
     {
@@ -128,6 +130,7 @@
         "fr_FR": "En boucle"
       },
       "type": "Boolean",
+      "bindable": true,
       "value": false
     },
     {
@@ -137,6 +140,7 @@
         "fr_FR": "Volume"
       },
       "type": "Float",
+      "bindable": true,
       "value": 1
     },
     {
@@ -146,6 +150,7 @@
         "fr_FR": "Vitesse"
       },
       "type": "Float",
+      "bindable": true,
       "value": 1
     }
   ],
@@ -208,6 +213,7 @@
           "name": "Seconds",
           "locale_name": { "fr_FR": "Secondes" },
           "type": "Integer",
+          "bindable": true,
           "value": 0
         }
       ]
@@ -224,6 +230,7 @@
           "name": "Seconds",
           "locale_name": { "fr_FR": "Secondes" },
           "type": "Integer",
+          "bindable": true,
           "value": 1
         }
       ]
@@ -240,6 +247,7 @@
           "name": "Seconds",
           "locale_name": { "fr_FR": "Secondes" },
           "type": "Integer",
+          "bindable": true,
           "value": 1
         }
       ]
@@ -263,6 +271,7 @@
           "name": "Volume",
           "locale_name": { "fr_FR": "Volume" },
           "type": "Float",
+          "bindable": true,
           "value": 1
         }
       ]
@@ -279,6 +288,7 @@
           "name": "Volume",
           "locale_name": { "fr_FR": "Volume" },
           "type": "Float",
+          "bindable": true,
           "value": 0.1
         }
       ]
@@ -295,6 +305,7 @@
           "name": "Volume",
           "locale_name": { "fr_FR": "Volume" },
           "type": "Float",
+          "bindable": true,
           "value": 0.1
         }
       ]
@@ -311,6 +322,7 @@
           "name": "Speed",
           "locale_name": { "fr_FR": "Vitesse" },
           "type": "Float",
+          "bindable": true,
           "value": 1
         }
       ]
@@ -327,6 +339,7 @@
           "name": "Speed",
           "locale_name": { "fr_FR": "Vitesse" },
           "type": "Float",
+          "bindable": true,
           "value": 1
         }
       ]
@@ -343,6 +356,7 @@
           "name": "Speed",
           "locale_name": { "fr_FR": "Vitesse" },
           "type": "Float",
+          "bindable": true,
           "value": 1
         }
       ]
