@@ -29,13 +29,16 @@ function App() {
     },
     actions: {
       playPause: () => {
-        setExternalProps({ ...externalProps, playing: !externalProps.playing });
+        setExternalProps((prevProps) => ({
+          ...prevProps,
+          playing: !prevProps.playing,
+        }));
       },
       play: () => {
-        setExternalProps({ ...externalProps, playing: true });
+        setExternalProps((prevProps) => ({ ...prevProps, playing: true }));
       },
       pause: () => {
-        setExternalProps({ ...externalProps, playing: false });
+        setExternalProps((prevProps) => ({ ...prevProps, playing: false }));
       },
       stop: () => {
         PandaBridge.send("onFinishPlaying");
@@ -62,32 +65,41 @@ function App() {
         }
       },
       setVolume: ({ volume }) => {
-        setExternalProps({ ...externalProps, volume });
+        setExternalProps((prevProps) => ({ ...prevProps, volume }));
       },
       increaseVolume: ({ volume }) => {
         const currentVolume = _.get(player, "current.props.volume", 1);
-        setExternalProps({ ...externalProps, volume: currentVolume + volume });
+        setExternalProps((prevProps) => ({
+          ...prevProps,
+          volume: currentVolume + volume,
+        }));
       },
       decreaseVolume: ({ volume }) => {
         const currentVolume = _.get(player, "current.props.volume", 1);
-        setExternalProps({ ...externalProps, volume: currentVolume - volume });
+        setExternalProps((prevProps) => ({
+          ...prevProps,
+          volume: currentVolume - volume,
+        }));
       },
       setSpeed: ({ speed }) => {
-        setExternalProps({ ...externalProps, playbackRate: speed });
+        setExternalProps((prevProps) => ({
+          ...prevProps,
+          playbackRate: speed,
+        }));
       },
       increaseSpeed: ({ speed }) => {
         const currentRate = _.get(player, "current.props.playbackRate", 1);
-        setExternalProps({
-          ...externalProps,
+        setExternalProps((prevProps) => ({
+          ...prevProps,
           playbackRate: currentRate + speed,
-        });
+        }));
       },
       decreaseSpeed: ({ speed }) => {
         const currentRate = _.get(player, "current.props.playbackRate", 1);
-        setExternalProps({
-          ...externalProps,
-          playbackRate: currentRate + speed,
-        });
+        setExternalProps((prevProps) => ({
+          ...prevProps,
+          playbackRate: currentRate - speed,
+        }));
       },
     },
     synchronization: {
@@ -148,27 +160,36 @@ function App() {
   const volume = _.get(externalProps, "volume", properties.volume);
 
   function handlePlay() {
-    if (!externalProps.playing) {
-      setExternalProps({ ...externalProps, playing: true });
-    }
-    triggerUpdatedData(PandaBridge.UPDATED);
-    PandaBridge.send("onStartingPlay");
+    setExternalProps((prevProps) => {
+      if (!prevProps.playing) {
+        triggerUpdatedData(PandaBridge.UPDATED);
+        PandaBridge.send("onStartingPlay");
+        return { ...prevProps, playing: true };
+      }
+      return prevProps;
+    });
   }
 
   function handlePause() {
-    if (externalProps.playing) {
-      setExternalProps({ ...externalProps, playing: false });
-    }
-    triggerUpdatedData(PandaBridge.UPDATED);
-    PandaBridge.send("onPausePlaying");
+    setExternalProps((prevProps) => {
+      if (prevProps.playing) {
+        triggerUpdatedData(PandaBridge.UPDATED);
+        PandaBridge.send("onPausePlaying");
+        return { ...prevProps, playing: false };
+      }
+      return prevProps;
+    });
   }
 
   function handleEnded() {
-    if (externalProps.playing) {
-      setExternalProps({ ...externalProps, playing: false });
-    }
-    triggerUpdatedData(PandaBridge.UPDATED, -1);
-    PandaBridge.send("onFinishPlaying");
+    setExternalProps((prevProps) => {
+      if (prevProps.playing) {
+        triggerUpdatedData(PandaBridge.UPDATED, -1);
+        PandaBridge.send("onFinishPlaying");
+        return { ...prevProps, playing: false };
+      }
+      return prevProps;
+    });
   }
 
   function handleProgress() {
@@ -241,11 +262,11 @@ function App() {
       muted={volume === 0}
       width="100%"
       height="100%"
-      onDuration={() =>
+      onDuration={() => {
         triggerUpdatedData(
           PandaBridge.isStudio ? PandaBridge.INITIALIZED : PandaBridge.UPDATED,
-        )
-      }
+        );
+      }}
       onPlay={handlePlay}
       onPause={handlePause}
       onEnded={handleEnded}
