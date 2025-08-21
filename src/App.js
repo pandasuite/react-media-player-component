@@ -161,9 +161,9 @@ function App() {
 
   function handlePlay() {
     setExternalProps((prevProps) => {
+      triggerUpdatedData(PandaBridge.UPDATED);
+      PandaBridge.send("onStartingPlay");
       if (!prevProps.playing) {
-        triggerUpdatedData(PandaBridge.UPDATED);
-        PandaBridge.send("onStartingPlay");
         return { ...prevProps, playing: true };
       }
       return prevProps;
@@ -172,9 +172,9 @@ function App() {
 
   function handlePause() {
     setExternalProps((prevProps) => {
+      triggerUpdatedData(PandaBridge.UPDATED);
+      PandaBridge.send("onPausePlaying");
       if (prevProps.playing) {
-        triggerUpdatedData(PandaBridge.UPDATED);
-        PandaBridge.send("onPausePlaying");
         return { ...prevProps, playing: false };
       }
       return prevProps;
@@ -183,9 +183,9 @@ function App() {
 
   function handleEnded() {
     setExternalProps((prevProps) => {
+      triggerUpdatedData(PandaBridge.UPDATED, -1);
+      PandaBridge.send("onFinishPlaying");
       if (prevProps.playing) {
-        triggerUpdatedData(PandaBridge.UPDATED, -1);
-        PandaBridge.send("onFinishPlaying");
         return { ...prevProps, playing: false };
       }
       return prevProps;
