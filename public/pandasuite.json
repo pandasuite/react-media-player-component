@@ -1,7 +1,14 @@
 {
+  "meta": {
+    "stype": "media-player",
+    "componentURL": "https://github.com/pandasuite/react-media-player-component/",
+    "description": "Embeds and controls multimedia content from URLs (YouTube, Vimeo, SoundCloud, direct links) with playback controls, time markers, and synchronization.",
+    "locale_description": {
+      "fr_FR": "Intègre et contrôle du contenu multimédia depuis des URLs (YouTube, Vimeo, SoundCloud, liens directs) avec des contrôles de lecture, des marqueurs temporels et la synchronisation."
+    }
+  },
   "version": "2.0.0",
   "main": "",
-
   "system": {
     "localization": false,
     "actions": [
@@ -10,6 +17,10 @@
         "name": "Change Time",
         "locale_name": {
           "fr_FR": "Changer Temps"
+        },
+        "description": "Jump to a specific time marker.",
+        "locale_description": {
+          "fr_FR": "Sauter à un marqueur temporel spécifique."
         }
       }
     ],
@@ -19,6 +30,10 @@
         "name": "Time",
         "locale_name": {
           "fr_FR": "Temps"
+        },
+        "description": "Fires when playback reaches a time marker.",
+        "locale_description": {
+          "fr_FR": "Se déclenche quand la lecture atteint un marqueur temporel."
         }
       }
     ],
@@ -28,6 +43,10 @@
         "name": "Add Time",
         "locale_name": {
           "fr_FR": "Ajouter Temps"
+        },
+        "description": "Update the player control bar state (position, duration, playing state).",
+        "locale_description": {
+          "fr_FR": "Mettre à jour l'état de la barre de contrôle (position, durée, état de lecture)."
         }
       }
     ],
@@ -45,7 +64,6 @@
       }
     }
   },
-
   "controls": [
     {
       "id": "controlBar",
@@ -83,10 +101,13 @@
             }
           }
         }
+      },
+      "description": "Media player control bar with play/pause, seek, and volume controls.",
+      "locale_description": {
+        "fr_FR": "Barre de contrôle du lecteur multimédia avec lecture/pause, recherche et contrôles de volume."
       }
     }
   ],
-
   "properties": [
     {
       "id": "url",
@@ -101,7 +122,11 @@
         "lines": 1
       },
       "bindable": true,
-      "required": true
+      "required": true,
+      "description": "URL of the media to play (YouTube, Vimeo, SoundCloud, or direct media link).",
+      "locale_description": {
+        "fr_FR": "URL du média à lire (YouTube, Vimeo, SoundCloud ou lien média direct)."
+      }
     },
     {
       "id": "controls",
@@ -111,7 +136,11 @@
       },
       "type": "Boolean",
       "bindable": true,
-      "value": false
+      "value": false,
+      "description": "Show native player controls (play, pause, volume, seek bar).",
+      "locale_description": {
+        "fr_FR": "Afficher les contrôles natifs du lecteur (lecture, pause, volume, barre de progression)."
+      }
     },
     {
       "id": "autoPlay",
@@ -121,7 +150,11 @@
       },
       "type": "Boolean",
       "bindable": true,
-      "value": false
+      "value": false,
+      "description": "Start playback automatically when the component loads.",
+      "locale_description": {
+        "fr_FR": "Démarrer la lecture automatiquement au chargement du composant."
+      }
     },
     {
       "id": "loop",
@@ -131,7 +164,11 @@
       },
       "type": "Boolean",
       "bindable": true,
-      "value": false
+      "value": false,
+      "description": "Loop playback continuously.",
+      "locale_description": {
+        "fr_FR": "Lire en boucle continuellement."
+      }
     },
     {
       "id": "volume",
@@ -141,7 +178,11 @@
       },
       "type": "Float",
       "bindable": true,
-      "value": 1
+      "value": 1,
+      "description": "Initial volume level (0 to 1).",
+      "locale_description": {
+        "fr_FR": "Niveau de volume initial (0 à 1)."
+      }
     },
     {
       "id": "playbackRate",
@@ -151,16 +192,23 @@
       },
       "type": "Float",
       "bindable": true,
-      "value": 1
+      "value": 1,
+      "description": "Initial playback speed multiplier.",
+      "locale_description": {
+        "fr_FR": "Multiplicateur de vitesse de lecture initial."
+      }
     }
   ],
-
   "events": [
     {
       "id": "onStartingPlay",
       "name": "Starting play",
       "locale_name": {
         "fr_FR": "Commence lecture"
+      },
+      "description": "Fires when playback starts.",
+      "locale_description": {
+        "fr_FR": "Se déclenche quand la lecture démarre."
       }
     },
     {
@@ -168,6 +216,10 @@
       "name": "Pause playing",
       "locale_name": {
         "fr_FR": "Mise en pause"
+      },
+      "description": "Fires when playback is paused.",
+      "locale_description": {
+        "fr_FR": "Se déclenche quand la lecture est mise en pause."
       }
     },
     {
@@ -175,16 +227,23 @@
       "name": "Finish playing",
       "locale_name": {
         "fr_FR": "Fin lecture"
+      },
+      "description": "Fires when playback reaches the end.",
+      "locale_description": {
+        "fr_FR": "Se déclenche quand la lecture atteint la fin."
       }
     }
   ],
-
   "actions": [
     {
       "id": "playPause",
       "name": "Play/Pause",
       "locale_name": {
         "fr_FR": "Lecture/Pause"
+      },
+      "description": "Toggle between play and pause.",
+      "locale_description": {
+        "fr_FR": "Basculer entre lecture et pause."
       }
     },
     {
@@ -192,6 +251,10 @@
       "name": "Play",
       "locale_name": {
         "fr_FR": "Lecture"
+      },
+      "description": "Start or resume playback.",
+      "locale_description": {
+        "fr_FR": "Démarrer ou reprendre la lecture."
       }
     },
     {
@@ -199,6 +262,10 @@
       "name": "Pause",
       "locale_name": {
         "fr_FR": "Mettre en pause"
+      },
+      "description": "Pause playback.",
+      "locale_description": {
+        "fr_FR": "Mettre en pause la lecture."
       }
     },
     {
@@ -211,12 +278,22 @@
         {
           "id": "seconds",
           "name": "Seconds",
-          "locale_name": { "fr_FR": "Secondes" },
+          "locale_name": {
+            "fr_FR": "Secondes"
+          },
           "type": "Integer",
           "bindable": true,
-          "value": 0
+          "value": 0,
+          "description": "Target time position in seconds.",
+          "locale_description": {
+            "fr_FR": "Position temporelle cible en secondes."
+          }
         }
-      ]
+      ],
+      "description": "Jump to a specific time position.",
+      "locale_description": {
+        "fr_FR": "Sauter à une position temporelle spécifique."
+      }
     },
     {
       "id": "forward",
@@ -228,12 +305,22 @@
         {
           "id": "seconds",
           "name": "Seconds",
-          "locale_name": { "fr_FR": "Secondes" },
+          "locale_name": {
+            "fr_FR": "Secondes"
+          },
           "type": "Integer",
           "bindable": true,
-          "value": 1
+          "value": 1,
+          "description": "Number of seconds to advance.",
+          "locale_description": {
+            "fr_FR": "Nombre de secondes à avancer."
+          }
         }
-      ]
+      ],
+      "description": "Advance playback by a number of seconds.",
+      "locale_description": {
+        "fr_FR": "Avancer la lecture d'un nombre de secondes."
+      }
     },
     {
       "id": "rewind",
@@ -245,18 +332,32 @@
         {
           "id": "seconds",
           "name": "Seconds",
-          "locale_name": { "fr_FR": "Secondes" },
+          "locale_name": {
+            "fr_FR": "Secondes"
+          },
           "type": "Integer",
           "bindable": true,
-          "value": 1
+          "value": 1,
+          "description": "Number of seconds to rewind.",
+          "locale_description": {
+            "fr_FR": "Nombre de secondes à reculer."
+          }
         }
-      ]
+      ],
+      "description": "Rewind playback by a number of seconds.",
+      "locale_description": {
+        "fr_FR": "Reculer la lecture d'un nombre de secondes."
+      }
     },
     {
       "id": "restartFromBeginning",
       "name": "Restart from beginning",
       "locale_name": {
         "fr_FR": "Redémarrer au début"
+      },
+      "description": "Restart playback from the beginning.",
+      "locale_description": {
+        "fr_FR": "Redémarrer la lecture depuis le début."
       }
     },
     {
@@ -269,12 +370,22 @@
         {
           "id": "volume",
           "name": "Volume",
-          "locale_name": { "fr_FR": "Volume" },
+          "locale_name": {
+            "fr_FR": "Volume"
+          },
           "type": "Float",
           "bindable": true,
-          "value": 1
+          "value": 1,
+          "description": "Target volume level (0 to 1).",
+          "locale_description": {
+            "fr_FR": "Niveau de volume cible (0 à 1)."
+          }
         }
-      ]
+      ],
+      "description": "Set the volume to a specific level.",
+      "locale_description": {
+        "fr_FR": "Régler le volume à un niveau spécifique."
+      }
     },
     {
       "id": "increaseVolume",
@@ -286,12 +397,22 @@
         {
           "id": "volume",
           "name": "Volume",
-          "locale_name": { "fr_FR": "Volume" },
+          "locale_name": {
+            "fr_FR": "Volume"
+          },
           "type": "Float",
           "bindable": true,
-          "value": 0.1
+          "value": 0.1,
+          "description": "Amount to add to the current volume.",
+          "locale_description": {
+            "fr_FR": "Valeur à ajouter au volume actuel."
+          }
         }
-      ]
+      ],
+      "description": "Increase the volume by a given amount.",
+      "locale_description": {
+        "fr_FR": "Augmenter le volume d'une valeur donnée."
+      }
     },
     {
       "id": "decreaseVolume",
@@ -303,12 +424,22 @@
         {
           "id": "volume",
           "name": "Volume",
-          "locale_name": { "fr_FR": "Volume" },
+          "locale_name": {
+            "fr_FR": "Volume"
+          },
           "type": "Float",
           "bindable": true,
-          "value": 0.1
+          "value": 0.1,
+          "description": "Amount to subtract from the current volume.",
+          "locale_description": {
+            "fr_FR": "Valeur à soustraire du volume actuel."
+          }
         }
-      ]
+      ],
+      "description": "Decrease the volume by a given amount.",
+      "locale_description": {
+        "fr_FR": "Diminuer le volume d'une valeur donnée."
+      }
     },
     {
       "id": "setSpeed",
@@ -320,12 +451,22 @@
         {
           "id": "speed",
           "name": "Speed",
-          "locale_name": { "fr_FR": "Vitesse" },
+          "locale_name": {
+            "fr_FR": "Vitesse"
+          },
           "type": "Float",
           "bindable": true,
-          "value": 1
+          "value": 1,
+          "description": "Target playback speed multiplier.",
+          "locale_description": {
+            "fr_FR": "Multiplicateur de vitesse de lecture cible."
+          }
         }
-      ]
+      ],
+      "description": "Set the playback speed.",
+      "locale_description": {
+        "fr_FR": "Régler la vitesse de lecture."
+      }
     },
     {
       "id": "increaseSpeed",
@@ -337,12 +478,22 @@
         {
           "id": "speed",
           "name": "Speed",
-          "locale_name": { "fr_FR": "Vitesse" },
+          "locale_name": {
+            "fr_FR": "Vitesse"
+          },
           "type": "Float",
           "bindable": true,
-          "value": 1
+          "value": 1,
+          "description": "Amount to add to the current speed.",
+          "locale_description": {
+            "fr_FR": "Valeur à ajouter à la vitesse actuelle."
+          }
         }
-      ]
+      ],
+      "description": "Increase playback speed.",
+      "locale_description": {
+        "fr_FR": "Augmenter la vitesse de lecture."
+      }
     },
     {
       "id": "decreaseSpeed",
@@ -354,25 +505,37 @@
         {
           "id": "speed",
           "name": "Speed",
-          "locale_name": { "fr_FR": "Vitesse" },
+          "locale_name": {
+            "fr_FR": "Vitesse"
+          },
           "type": "Float",
           "bindable": true,
-          "value": 1
+          "value": 1,
+          "description": "Amount to subtract from the current speed.",
+          "locale_description": {
+            "fr_FR": "Valeur à soustraire de la vitesse actuelle."
+          }
         }
-      ]
+      ],
+      "description": "Decrease playback speed.",
+      "locale_description": {
+        "fr_FR": "Diminuer la vitesse de lecture."
+      }
     }
   ],
-
   "synchronization": [
     {
       "id": "time",
       "name": "Synchronize time",
       "locale_name": {
         "fr_FR": "Synchroniser temps"
+      },
+      "description": "Synchronize playback position with another component.",
+      "locale_description": {
+        "fr_FR": "Synchroniser la position de lecture avec un autre composant."
       }
     }
   ],
-
   "queryable": {
     "currentValue": 0,
     "duration": 0,
@@ -381,18 +544,30 @@
       "name": "Current value",
       "locale_name": {
         "fr_FR": "Valeur actuelle"
+      },
+      "description": "Current playback position in seconds.",
+      "locale_description": {
+        "fr_FR": "Position de lecture actuelle en secondes."
       }
     },
     "__desc_duration": {
       "name": "Duration",
       "locale_name": {
         "fr_FR": "Durée"
+      },
+      "description": "Total duration of the media in seconds.",
+      "locale_description": {
+        "fr_FR": "Durée totale du média en secondes."
       }
     },
     "__desc_playing": {
       "name": "Is Playing",
       "locale_name": {
         "fr_FR": "Est en cours de lecture"
+      },
+      "description": "Whether the media is currently playing.",
+      "locale_description": {
+        "fr_FR": "Si le média est actuellement en lecture."
       }
     }
   }
