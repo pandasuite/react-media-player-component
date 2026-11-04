@@ -19,10 +19,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "rm -f ./pandasuite-component.zip && react-scripts build && cd build && zip -r -X '../pandasuite-component.zip' *",
+    "build": "rm -f ./pandasuite-component.zip ./react-media-player-component-v*.zip && react-scripts build && cd build && zip -r -X \"../react-media-player-component-v$npm_package_version.zip\" *",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "release": "yarn build && release-it --no-npm.publish"
+    "release": "release-it --no-npm.publish"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -52,10 +52,13 @@
     "release-it": "^13.0.1"
   },
   "release-it": {
+    "hooks": {
+      "after:bump": "yarn build"
+    },
     "github": {
       "release": true,
       "assets": [
-        "pandasuite-component.zip"
+        "react-media-player-component-v*.zip"
       ]
     }
   }
